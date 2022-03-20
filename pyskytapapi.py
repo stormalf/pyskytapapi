@@ -47,7 +47,7 @@ PUT /configurations/{configuration-id}: update the resource
     
 '''
 
-__version__ = "1.0.0"
+__version__ = "1.0.1"
 
 ALLOWED_METHODS = ["DELETE", "GET", "POST", "PUT"]
 URL = "https://cloud.skytap.com"
@@ -139,6 +139,8 @@ class skytapApi():
             raise SystemExit(e)   
         if response.status_code == NO_CONTENT:
             response = "{}"
+        elif response.status_code != 200:
+            response = jsonload('{"message": "Error : ' + str(response.status_code) + ' ' + response.reason + '"}')
         else:            
             response = response.json()
         return response

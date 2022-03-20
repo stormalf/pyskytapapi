@@ -58,3 +58,5 @@ pyskytapapi is a python3 program that call skytap apis in command line or import
 pyskytapapi.py
 
 1.0.0 initial version
+
+1.0.1 Managing http error codes
